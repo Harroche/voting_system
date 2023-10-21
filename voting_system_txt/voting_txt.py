@@ -23,8 +23,13 @@ class votingSystem:
     def results (self) -> object:
         return pyrankvote.single_transferable_vote(self.candidates,self.ballot,self.numberOfSeats)
 
-file = "voting_system_txt/votes.txt"
-numberOfSeats = int(input("Input the amount of seats for postion: "))
-sys=votingSystem(file,numberOfSeats)
-sys.countVotes()
-print(sys.results())
+
+def main():
+    file = "voting_system_txt/votes.txt"
+    numberOfSeats = int(input("Input the amount of seats for postion: "))
+    sys=votingSystem(file,numberOfSeats)
+    sys.countVotes()
+    print(sys.results())
+
+if __name__ == '__main__':
+    main()
