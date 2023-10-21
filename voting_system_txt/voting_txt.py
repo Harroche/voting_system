@@ -1,25 +1,30 @@
 import pyrankvote
 from pyrankvote import Candidate, Ballot
 
-file = open("voting_system_txt/votes.txt","r")
-lineForCan = file.readline().replace("\n","")
-canArr= lineForCan.split('\t') #places candiates in array
-candidates = []
-seats=int(input("input the amount of seats for postion: "))
-#puts in both an array and dict
-for can in canArr:
-    candidates.append(Candidate(can))
-file.seek(0)
-lines = file.readlines()
-ballot=[]
-for line in lines:  #the rest of the lines
-    line.replace("\n","")
-    standing=line.split()
-    ballotArray = []
-    for can in standing:
-        ballotArray.append(Candidate(can))
-    ballot.append(Ballot(ranked_candidates=ballotArray))
+class votingSystem:
 
-#prints election results 
-election_results = pyrankvote.single_transferable_vote(candidates,ballot,seats)
-print(election_results)
+    def __init__(self,path,seats) -> None:
+        self.file_array = open(path,"r").readlines()
+        self.candidates = []
+        self.ballot =[]
+        self.numberOfSeats = seats
+
+    def countVotes (self) -> None:
+        candidates_init=self.file_array[0].replace("\n","").split('\t')
+        for candid in candidates_init:
+            self.candidates.append(Candidate(candid))
+        for vote in self.file_array:
+            placements=vote.replace("\n","").split('\t')
+            ranking =[]
+            for place in placements:
+                ranking.append(Candidate(place))
+            self.ballot.append(Ballot(ranked_candidates=ranking))
+    
+    def results (self) -> object:
+        return pyrankvote.single_transferable_vote(self.candidates,self.ballot,self.numberOfSeats)
+
+file = "voting_system_txt/votes.txt"
+numberOfSeats = int(input("Input the amount of seats for postion: "))
+sys=votingSystem(file,numberOfSeats)
+sys.countVotes()
+print(sys.results())
