@@ -5,13 +5,13 @@ from pyrankvote import Candidate, Ballot
 
 @pytest.fixture
 def votingSystemFixture1 () ->votingSystem :
-    file = "C:/Users/harro/OneDrive/Documents/GitHub/voting_system/voting_system_txt/test_vote1.txt" 
+    file = "voting_system_txt/test_vote1.txt" 
     numberOfSeats=1
     return votingSystem(file,numberOfSeats)
 
 @pytest.fixture
 def votingSystemFixture2 () ->votingSystem :
-    file = "C:/Users/harro/OneDrive/Documents/GitHub/voting_system/voting_system_txt/test_vote2.txt" 
+    file = "voting_system_txt/test_vote2.txt" 
     numberOfSeats=1
     return votingSystem(file,numberOfSeats)
 
