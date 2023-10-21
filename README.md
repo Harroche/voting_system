@@ -22,7 +22,7 @@ Line 11 might need to be edited if your first vote does not start on column D
 
 
 
-**Voting_system_excel**
+**Voting_system_text**
 
 Library’s used 
   Pyrankvote
