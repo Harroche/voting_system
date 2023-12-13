@@ -1,4 +1,4 @@
-# voting_system
+# Voting_system
 A single transferable voting system which works off txt/excel to python 
 
 **Voting_system_excel**
@@ -24,10 +24,9 @@ Line 11 might need to be edited if your first vote does not start on column D
 
 **Voting_system_text**
 
-Library’s used 
-  Pyrankvote
-    Used for the voting system 
-    To download “pip install pyrankvote”
+1. Install library’s used
+```bash
+    pip install pyrankvote
     
     
 Format of txt 
