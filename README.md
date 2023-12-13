@@ -27,6 +27,7 @@ Line 11 might need to be edited if your first vote does not start on column D
 1. Install library’s used
 ```bash
     pip install pyrankvote
+```
     
     
 Format of txt 
